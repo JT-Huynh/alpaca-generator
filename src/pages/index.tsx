@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { getAlpacaComponent } from "~/utils/fileHandler";
 
 function Button({ btnTxt }: { btnTxt: string }) {
   return (
@@ -14,7 +13,6 @@ function Button({ btnTxt }: { btnTxt: string }) {
 }
 
 export default function Home() {
-  getAlpacaComponent();
   return (
     <>
       <Head>
