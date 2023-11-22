@@ -1,4 +1,5 @@
-const ACCESSORIZE_PART = {
+export const ACCESSORIZE_TITLE = "ACCESSORIZE THE ALPACA'S";
+export const ACCESSORIZE_PART = {
   HAIR: "Hair",
   EARS: "Ears",
   EYES: "Eyes",
