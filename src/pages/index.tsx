@@ -5,7 +5,6 @@ import {
   ACCESSORIZE_TITLE,
   STYLE_TITLE,
 } from "~/constants/controlPanel";
-import { getDirectioriesName } from "~/utils/fileHandler";
 
 function Button({ name }: { name: string }) {
   return (
@@ -18,7 +17,7 @@ function Button({ name }: { name: string }) {
   );
 }
 
-export default function Home({ alpacaPart }: { alpacaPart: string[] }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -69,9 +68,3 @@ export default function Home({ alpacaPart }: { alpacaPart: string[] }) {
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  const alpacaPart = await getDirectioriesName();
-
-  return { props: { alpacaPart } };
-};
