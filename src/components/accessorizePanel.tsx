@@ -4,7 +4,7 @@ import Button from "./button";
 export default function AccessorizePanel() {
   return (
     <div>
-      <h2 className="pb-5 text-base font-bold tracking-widest text-black">
+      <h2 className="pb-5 text-base font-bold text-black">
         {ACCESSORIZE_TITLE}
       </h2>
       <div className="flex flex-wrap gap-2">
