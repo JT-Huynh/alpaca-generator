@@ -9,7 +9,7 @@ export default function FunctionButton({
 }) {
   return (
     <button
-      className="flex items-center justify-center gap-2.5 rounded-lg bg-white p-2.5 px-10 shadow"
+      className="flex items-center justify-center gap-2.5 rounded-lg bg-white px-12 py-2.5 shadow-md transition-all hover:-translate-y-2 hover:border hover:border-blue-400"
       type="button"
     >
       <Image
