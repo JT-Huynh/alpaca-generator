@@ -13,7 +13,7 @@ export default function AccessorizePanel({
       <h2 className="pb-5 text-base font-bold text-black">
         {ACCESSORIZE_TITLE}
       </h2>
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-3 gap-2 transition-all">
         {Object.values(ACCESSORIZE_PART).map((part: ACCESSORIZE_PART) => (
           <Button
             key={part}

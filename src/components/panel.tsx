@@ -13,7 +13,7 @@ export default function Panel() {
   }
 
   return (
-    <div className="flex flex-col justify-start gap-20">
+    <div className="flex flex-1 flex-col justify-start gap-10">
       <AccessorizePanel selectedPart={part} onClick={handleClick} />
       <StylePanel accessorizePart={part} />
     </div>

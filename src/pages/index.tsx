@@ -12,23 +12,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="min-w-screen flex min-h-screen justify-center bg-zinc-100">
-        <div className="flex w-7/12 flex-col justify-start gap-14 py-20">
-          <h1 className="font-sans text-5xl font-bold uppercase tracking-widest text-slate-900">
+        <div className="flex w-10/12 flex-col justify-start gap-12 py-20">
+          <h1 className="ml-3 text-5xl font-extrabold uppercase tracking-widest text-slate-900">
             alpaca generator
           </h1>
           <div className="flex gap-48">
             <Image
-              className="rounded"
+              className="min-h-fit rounded"
               src="/alpaca/backgrounds/darkblue50.png"
-              width={450}
-              height={450}
+              width={570}
+              height={570}
               alt="preview image"
             />
 
             <Panel />
           </div>
 
-          <div className="flex max-w-md justify-between">
+          <div className="flex max-w-xl justify-between">
             <FunctionButton
               name="random"
               icon={{ name: "random", alt: "random button" }}
