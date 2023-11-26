@@ -14,7 +14,7 @@ export default function Panel() {
 
   return (
     <div className="flex flex-col justify-start gap-20">
-      <AccessorizePanel onClick={handleClick} />
+      <AccessorizePanel selectedPart={part} onClick={handleClick} />
       <StylePanel accessorizePart={part} />
     </div>
   );
