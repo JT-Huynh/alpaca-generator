@@ -1,19 +1,23 @@
 import {
-  ACCESSORIZE_PART,
+  type ACCESSORIZE_PART,
   ACCESSORIZE_PART_ATTRIBUTES,
   STYLE_TITLE,
 } from "~/constants/controlPanel";
 import Button from "./button";
 
-export default function StylePanel() {
-  const attributes = ACCESSORIZE_PART_ATTRIBUTES[ACCESSORIZE_PART.HAIR];
+export default function StylePanel({
+  accessorizePart,
+}: {
+  accessorizePart: ACCESSORIZE_PART;
+}) {
+  const attributes = ACCESSORIZE_PART_ATTRIBUTES[accessorizePart];
 
   return (
     <div>
       <h2 className="pb-5 text-base font-bold text-black">{STYLE_TITLE}</h2>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 transition-all">
         {attributes.map((style: string) => (
-          <Button key={style} name={style} />
+          <Button key={style} name={style} value={style} />
         ))}
       </div>
     </div>
