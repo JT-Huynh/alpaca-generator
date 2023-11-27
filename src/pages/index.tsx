@@ -3,16 +3,23 @@ import { useState } from "react";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
 import PreviewPanel from "~/components/previewPanel";
-import {
-  type ACCESSORIZE_PART,
-  PART_DEFAULT_STYLE,
-} from "~/constants/controlPanel";
+import { ACCESSORIZE_PART, PART_DEFAULT_STYLE } from "~/constants/controlPanel";
 
 export default function Home() {
   const [style, setStyle] = useState(PART_DEFAULT_STYLE);
+  const [part, setPart] = useState(ACCESSORIZE_PART.HAIR);
+
+  function selectAtrributes(event: React.MouseEvent<HTMLButtonElement>) {
+    const selectedPart = event.currentTarget.value;
+
+    setPart(selectedPart as ACCESSORIZE_PART);
+  }
 
   function selectAttributeStyle(event: React.MouseEvent<HTMLButtonElement>) {
-    console.log(event.currentTarget, style);
+    const selectedStyle = event.currentTarget.value;
+    style[part] = selectedStyle;
+
+    setStyle(style);
   }
 
   return (
@@ -31,6 +38,8 @@ export default function Home() {
             <PreviewPanel accessorizeStyle={style} />
             <Panel
               accessorizeStyle={style}
+              part={part}
+              attributeChange={selectAtrributes}
               styleChange={selectAttributeStyle}
             />
           </div>
