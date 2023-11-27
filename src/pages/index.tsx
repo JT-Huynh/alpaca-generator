@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
+import PreviewPanel from "~/components/previewPanel";
 
 export default function Home() {
   return (
@@ -17,14 +17,7 @@ export default function Home() {
             alpaca generator
           </h1>
           <div className="flex gap-48">
-            <Image
-              className="min-h-fit rounded"
-              src="/alpaca/backgrounds/darkblue50.png"
-              width={570}
-              height={570}
-              alt="preview image"
-            />
-
+            <PreviewPanel />
             <Panel />
           </div>
 
