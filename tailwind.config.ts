@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
       },
+      height: {
+        "128": "35.625rem",
+      },
     },
   },
   plugins: [],

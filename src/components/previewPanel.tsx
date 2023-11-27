@@ -1,18 +1,76 @@
 import Image from "next/image";
+import { ACCESSORIZE_PART } from "~/constants/controlPanel";
 
-export default function PreviewPanel() {
+export default function PreviewPanel({
+  accessorizeStyle,
+}: {
+  accessorizeStyle: Record<string, string>;
+}) {
   return (
-    <div className="relative h-96 w-96">
+    <div className="relative w-4/12 flex-initial">
       <Image
-        className="absolute left-0 top-0 h-96 w-96"
-        src="/alpaca/backgrounds/darkblue50.png"
+        className="absolute left-0 top-0 h-full w-full"
+        src={`/alpaca/backgrounds/${
+          accessorizeStyle[ACCESSORIZE_PART.BACKGROUND]
+        }.png`}
         width={570}
         height={570}
         alt="preview image"
       />
       <Image
-        className="absolute"
-        src="/alpaca/neck/default.png"
+        className="absolute bottom-0 left-0"
+        src={`/alpaca/ears/${accessorizeStyle[ACCESSORIZE_PART.EARS]}.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute bottom-0 left-0"
+        src={`/alpaca/neck/${accessorizeStyle[ACCESSORIZE_PART.NECK]}.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute bottom-0 left-0"
+        src="/alpaca/nose.png"
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute bottom-0 left-0"
+        src={`/alpaca/mouth/${accessorizeStyle[ACCESSORIZE_PART.MOUTH]}.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute bottom-0 left-0"
+        src={`/alpaca/eyes/${accessorizeStyle[ACCESSORIZE_PART.EYES]}.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute left-0 top-0"
+        src={`/alpaca/hair/${accessorizeStyle[ACCESSORIZE_PART.HAIR]}.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute left-0 top-0"
+        src={`/alpaca/accessories/${
+          accessorizeStyle[ACCESSORIZE_PART.ASSESSORIES]
+        }.png`}
+        width={570}
+        height={570}
+        alt="preview image"
+      />
+      <Image
+        className="absolute bottom-0 left-0"
+        src={`/alpaca/leg/${accessorizeStyle[ACCESSORIZE_PART.LEG]}.png`}
         width={570}
         height={570}
         alt="preview image"
