@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { useState } from "react";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
@@ -41,6 +40,13 @@ export default function Home() {
     setStyle(randomStyle);
   }
 
+  function download() {
+    const link = document.createElement("a");
+    link.download = "alpaca_avatar";
+    link.href = "/favicon";
+    link.click();
+  }
+
   return (
     <>
       <Head>
@@ -69,17 +75,11 @@ export default function Home() {
               icon={{ name: "random", alt: "random button" }}
               handleClick={randomize}
             />
-            <Link
-              href="/favicon.ico"
-              download="alpaca_avatar"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FunctionButton
-                name="download"
-                icon={{ name: "download", alt: "download button" }}
-              />
-            </Link>
+            <FunctionButton
+              name="download"
+              icon={{ name: "download", alt: "download button" }}
+              handleClick={download}
+            />
           </div>
         </div>
       </section>
