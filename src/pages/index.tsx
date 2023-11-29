@@ -1,9 +1,14 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
 import PreviewPanel from "~/components/previewPanel";
-import { ACCESSORIZE_PART, PART_DEFAULT_STYLE } from "~/constants/controlPanel";
+import {
+  ACCESSORIZE_PART,
+  ACCESSORIZE_PART_ATTRIBUTES,
+  PART_DEFAULT_STYLE,
+} from "~/constants/controlPanel";
 
 export default function Home() {
   const [style, setStyle] = useState(PART_DEFAULT_STYLE);
@@ -21,6 +26,19 @@ export default function Home() {
     newStyle[part] = selectedStyle;
 
     setStyle(newStyle);
+  }
+
+  function randomize() {
+    const randomStyle: Record<string, string> = {};
+    for (const [part, attributes] of Object.entries(
+      ACCESSORIZE_PART_ATTRIBUTES,
+    )) {
+      const randomNumber = Math.floor(Math.random() * attributes.length);
+
+      randomStyle[part] = attributes[randomNumber]!;
+    }
+
+    setStyle(randomStyle);
   }
 
   return (
@@ -49,11 +67,19 @@ export default function Home() {
             <FunctionButton
               name="random"
               icon={{ name: "random", alt: "random button" }}
+              handleClick={randomize}
             />
-            <FunctionButton
-              name="download"
-              icon={{ name: "download", alt: "download button" }}
-            />
+            <Link
+              href="/favicon.ico"
+              download="alpaca_avatar"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FunctionButton
+                name="download"
+                icon={{ name: "download", alt: "download button" }}
+              />
+            </Link>
           </div>
         </div>
       </section>
