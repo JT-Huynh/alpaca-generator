@@ -17,9 +17,10 @@ export default function Home() {
 
   function selectAttributeStyle(event: React.MouseEvent<HTMLButtonElement>) {
     const selectedStyle = event.currentTarget.value;
-    style[part] = selectedStyle;
+    const newStyle = { ...style };
+    newStyle[part] = selectedStyle;
 
-    setStyle(style);
+    setStyle(newStyle);
   }
 
   return (

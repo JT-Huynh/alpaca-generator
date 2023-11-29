@@ -13,7 +13,7 @@ export enum ACCESSORIZE_PART {
 
 const ACCESSORIES = ["earings", "flower", "glasses", "headphone"];
 const EARS = ["default", "tilt-backward", "tilt-forward"];
-const EYES = ["default", "angry", "naughty", "panda", "smart", "start"];
+const EYES = ["default", "angry", "naughty", "panda", "smart", "star"];
 const HAIR = ["default", "bang", "curls", "elegant", "fancy", "quiff", "short"];
 const LEG = [
   "default",
