@@ -53,19 +53,19 @@ export default function PreviewPanel({
         alt="preview image"
       />
       <Image
-        className="absolute left-0 top-0"
+        className="absolute right-5 top-0"
         src={`/alpaca/hair/${accessorizeStyle[ACCESSORIZE_PART.HAIR]}.png`}
         width={570}
         height={570}
         alt="preview image"
       />
       <Image
-        className="absolute left-0 top-0"
+        className="absolute right-5 top-3"
         src={`/alpaca/accessories/${
           accessorizeStyle[ACCESSORIZE_PART.ASSESSORIES]
         }.png`}
-        width={570}
-        height={570}
+        width={500}
+        height={500}
         alt="preview image"
       />
       <Image
