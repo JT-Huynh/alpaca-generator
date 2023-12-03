@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import { useState } from "react";
 import FunctionButton from "~/components/functionButton";
@@ -8,6 +9,7 @@ import {
   ACCESSORIZE_PART_ATTRIBUTES,
   PART_DEFAULT_STYLE,
 } from "~/constants/controlPanel";
+import { env } from "~/env.mjs";
 
 export default function Home() {
   const [style, setStyle] = useState(PART_DEFAULT_STYLE);
@@ -40,11 +42,25 @@ export default function Home() {
     setStyle(randomStyle);
   }
 
-  function download() {
-    const link = document.createElement("a");
-    link.download = "alpaca_avatar";
-    link.href = "/favicon";
-    link.click();
+  async function download() {
+    try {
+      const result = await axios({
+        method: "POST",
+        url: `${env.NEXT_PUBLIC_SERVER_URL}/download`,
+        data: {
+          ...style,
+        },
+      });
+
+      if (result.status === 200) {
+        const link = document.createElement("a");
+        link.download = "alpaca_avatar";
+        link.href = "/alpaca/alpaca_avatar.png";
+        link.click();
+      }
+    } catch (error) {
+      throw error;
+    }
   }
 
   return (
@@ -59,7 +75,7 @@ export default function Home() {
           <h1 className="ml-3 text-5xl font-extrabold uppercase tracking-widest text-slate-900">
             alpaca generator
           </h1>
-          <div className="h-128 flex gap-48">
+          <div className="flex h-128 gap-48">
             <PreviewPanel accessorizeStyle={style} />
             <Panel
               accessorizeStyle={style}

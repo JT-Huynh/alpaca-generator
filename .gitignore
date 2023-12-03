@@ -40,3 +40,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# assets
+/public/alpaca/alpaca_avatar.png
