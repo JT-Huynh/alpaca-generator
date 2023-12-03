@@ -1,6 +1,7 @@
 import axios from "axios";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Confetti from "~/components/confetti";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
 import PreviewPanel from "~/components/previewPanel";
@@ -14,6 +15,7 @@ import { env } from "~/env.mjs";
 export default function Home() {
   const [style, setStyle] = useState(PART_DEFAULT_STYLE);
   const [part, setPart] = useState(ACCESSORIZE_PART.HAIR);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   function selectAtrributes(event: React.MouseEvent<HTMLButtonElement>) {
     const selectedPart = event.currentTarget.value;
@@ -58,6 +60,11 @@ export default function Home() {
         link.href = "/alpaca/alpaca_avatar.png";
         link.click();
       }
+
+      setShowConfetti(true);
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 3000);
     } catch (error) {
       throw error;
     }
@@ -70,12 +77,13 @@ export default function Home() {
         <meta name="description" content="Generate alpaca image" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="min-w-screen flex min-h-screen justify-center bg-zinc-100">
+      <section className="flex min-h-screen min-w-full justify-center bg-zinc-100">
         <div className="flex w-10/12 flex-col justify-start gap-12 py-20">
           <h1 className="ml-3 text-5xl font-extrabold uppercase tracking-widest text-slate-900">
             alpaca generator
           </h1>
           <div className="flex h-128 gap-48">
+            {showConfetti ? <Confetti /> : <></>}
             <PreviewPanel accessorizeStyle={style} />
             <Panel
               accessorizeStyle={style}
