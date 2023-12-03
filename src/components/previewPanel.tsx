@@ -7,7 +7,7 @@ export default function PreviewPanel({
   accessorizeStyle: Record<string, string>;
 }) {
   return (
-    <div className="relative w-4/12 flex-initial">
+    <div className="relative w-4/12 flex-initial transition-all">
       <Image
         className="absolute left-0 top-0 h-full w-full"
         src={`/alpaca/backgrounds/${
