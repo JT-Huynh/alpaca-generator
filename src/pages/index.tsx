@@ -46,9 +46,10 @@ export default function Home() {
 
   async function download() {
     try {
+      const url = new URL(window.location.href);
       const result = await axios({
         method: "POST",
-        url: `${env.NEXT_PUBLIC_SERVER_URL}/download`,
+        url: `${url.toString()}/download`,
         data: {
           ...style,
         },
