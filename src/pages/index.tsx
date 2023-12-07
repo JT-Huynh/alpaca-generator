@@ -1,6 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Confetti from "~/components/confetti";
 import FunctionButton from "~/components/functionButton";
 import Panel from "~/components/panel";
@@ -10,7 +10,6 @@ import {
   ACCESSORIZE_PART_ATTRIBUTES,
   PART_DEFAULT_STYLE,
 } from "~/constants/controlPanel";
-import { env } from "~/env.mjs";
 
 export default function Home() {
   const [style, setStyle] = useState(PART_DEFAULT_STYLE);
@@ -49,7 +48,7 @@ export default function Home() {
       const url = new URL(window.location.href);
       const result = await axios({
         method: "POST",
-        url: `${url.toString()}/download`,
+        url: `${url.toString()}/api/download`,
         data: {
           ...style,
         },
